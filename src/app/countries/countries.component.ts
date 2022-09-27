@@ -29,7 +29,7 @@ export class CountriesComponent {
   }
 
   private _retrieveCountryDetail(countryName: string): void {
-    this.countryService.getDetailsByName(countryName + (countryName === 'Algeria'? 'swdsw': ''))
+    this.countryService.getDetailsByName(countryName)
       .subscribe({
         next: response => {
           this.isError = false;
