@@ -1,0 +1,9 @@
+.data-selected{
+  background-color: #add2d2;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  margin-left: -4em;
+}

@@ -1,0 +1,13 @@
+.center-bold-blue {
+  width: 50%;
+  font-weight: bold;
+  text-align: center;
+  color: blue;
+}
+
+.center-bold-red {
+  width: 50%;
+  font-weight: bold;
+  text-align: center;
+  color: red;
+}

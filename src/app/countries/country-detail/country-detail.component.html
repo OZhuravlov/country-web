@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col center-bold-blue">
+      <img [src]="countryDetail.flag_file_url" alt="Country flag" width="40" height="20">
+      {{countryDetail.name}} ({{countryDetail.country_code}})
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">Capital: {{countryDetail.capital}}</div>
+  </div>
+  <div class="row">
+    <div class="col">Population: {{countryDetail.population}}</div>
+  </div>
+</div>

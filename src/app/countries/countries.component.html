@@ -1,0 +1,22 @@
+<div class="mb-3 row">
+  <div class="col-xs-3 col-sm-auto"><h2>This is a Country list:</h2></div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <app-country-list
+      (countrySelected)="onCountrySelected($event)"
+      (retrievalError)="setError($event)"
+    ></app-country-list>
+  </div>
+  <div class="col-md-4">
+    <app-country-detail
+      *ngIf="selectedCountryDetail; else infoText"
+      [countryDetail]="selectedCountryDetail">
+    </app-country-detail>
+    <ng-template #infoText>
+      <div class="col-md-8" [ngClass]="isError ? 'center-bold-red' : 'center-bold-blue'">{{infoMessage}}</div>
+    </ng-template>
+  </div>
+</div>
+

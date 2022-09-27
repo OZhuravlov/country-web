@@ -1,0 +1,40 @@
+<div class="col-xs-3 col-sm-auto loader">
+  <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Code</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let country of countries | paginate: { itemsPerPage: pageSize,
+                                                      currentPage: page,
+                                                      totalItems: total }; let i = index"
+      (click)="onSelectCountry(country)"
+      style="cursor: pointer"
+      [ngClass]="{'data-selected': selectedCountry && country.country_code === selectedCountry.country_code}"
+  >
+    <th scope="row">{{i+1}}</th>
+    <td>{{country.name}}</td>
+    <td>{{country.country_code}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="handlePageChange($event)"
+  ></pagination-controls>
+
+  <select class="form-select" style="width: auto" name="pageSize"
+          [(ngModel)]="pageSize"
+          (change)="handlePageSizeChange($event)"
+  >
+    <option *ngFor="let size of pageSizes" [value]="size">{{size}} items per page</option>
+  </select>
+</div>
